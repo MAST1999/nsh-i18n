@@ -1,0 +1,11 @@
+{
+  "name": "nsh-i18n",
+  "version": "0.1.0",
+  "description": "Locale data for NSH's Intl — one module per language, registered by the app",
+  "type": "module",
+  "main": "locales/fa.ts",
+  "scripts": {
+    "test": "bun test"
+  },
+  "license": "MIT"
+}
