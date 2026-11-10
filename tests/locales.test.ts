@@ -56,7 +56,7 @@ test("the schema invariants hold", () => {
     for (const key of ["decimal", "group", "minus", "percent", "nan", "exponential"]) {
       expect(numbers[key as keyof typeof numbers]).toBeTruthy();
     }
-    expect(Object.keys(numbers.compactShort).sort((a, b) => Number(a) - Number(b))).toEqual(["12", "3", "6", "9"].sort((a, b) => Number(a) - Number(b)));
+    expect(Object.keys(numbers.compactShort).map(Number).sort((a, b) => a - b)).toEqual([3, 6, 9, 12]);
     expect(dates.names?.months).toHaveLength(12);
     expect(dates.names?.monthsShort).toHaveLength(12);
     expect(dates.names?.weekdays).toHaveLength(7);
