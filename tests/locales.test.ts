@@ -9,7 +9,15 @@ const locale = (tag: string) => {
   if (!override) return base;
   return {
     numbers: { ...base.numbers, ...override.numbers },
-    dates: { ...base.dates, ...override.dates, names: override.dates?.names ?? base.dates.names },
+    dates: {
+      ...base.dates,
+      ...override.dates,
+      // A region's names merge over the language's (Dari's months over
+      // Persian's shared weekdays), as the built-in tables do.
+      names: override.dates?.names
+        ? { ...base.dates.names, ...override.dates.names }
+        : base.dates.names,
+    },
   };
 };
 
